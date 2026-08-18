@@ -1,0 +1,1 @@
+# QualidadeRedeRGdB.github.io
