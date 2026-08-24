@@ -381,6 +381,63 @@ body.review-modal-open { overflow:hidden; }
 @media (max-width:1400px) { .dealer-ranking-grid { grid-template-columns:1fr; } }
 @media (max-width:760px) { .dealer-subtabs label { flex:1 1 calc(50% - 8px); } .dealer-toolbar { align-items:stretch; flex-direction:column; } .dealer-toolbar-right { align-items:stretch; } .dealer-toolbar input[type="search"] { width:100%; } }
 
+/* Aba Dispersão. */
+.dispersion-subtab-control { position:absolute; opacity:0; pointer-events:none; }
+.dispersion-subtabs { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px; }
+.dispersion-subtabs label { display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:10px 22px; border:1px solid var(--border-hi); border-radius:10px; background:var(--surface); color:var(--muted); box-shadow:var(--shadow); font:900 12px 'DM Sans',Arial,sans-serif; cursor:pointer; }
+#dispersion-tab-resumo:checked ~ .dispersion-subtabs label[for="dispersion-tab-resumo"],
+#dispersion-tab-vn:checked ~ .dispersion-subtabs label[for="dispersion-tab-vn"],
+#dispersion-tab-pv:checked ~ .dispersion-subtabs label[for="dispersion-tab-pv"] { background:#111; color:#fff; border-color:#111; box-shadow:var(--shadow-lg); }
+.dispersion-subsection { display:none; }
+#dispersion-tab-resumo:checked ~ .dispersion-subsections #dispersion-resumo,
+#dispersion-tab-vn:checked ~ .dispersion-subsections #dispersion-vn,
+#dispersion-tab-pv:checked ~ .dispersion-subsections #dispersion-pv { display:block; }
+.dispersion-summary-day { margin:18px 0 28px; }
+.dispersion-summary-grid { display:grid; grid-template-columns:repeat(3,minmax(360px,1fr)); gap:12px; overflow-x:auto; padding:0 0 10px; }
+.dispersion-summary-card { overflow:hidden; min-width:360px; border:1px solid var(--border); border-radius:0 0 12px 12px; background:#fff; box-shadow:var(--shadow); }
+.dispersion-summary-card-title { padding:8px 10px; border-bottom:1px solid var(--border-hi); text-align:center; font-family:'Syne',sans-serif; font-weight:900; }
+.dispersion-summary-card.vn .dispersion-summary-card-title { background:#f4c400; }
+.dispersion-summary-card.pv .dispersion-summary-card-title { background:#aaa8a8; color:#111; }
+.dispersion-summary-table { min-width:100%; table-layout:fixed; font-size:11px; }
+.dispersion-summary-table th, .dispersion-summary-table td { padding:6px 5px; white-space:normal; }
+.dispersion-summary-card.vn .dispersion-summary-table thead th { background:#ffdd70; }
+.dispersion-summary-card.pv .dispersion-summary-table thead th { background:#d1cfcf; }
+.dispersion-summary-table tbody th { background:#fafafa; font-weight:1000; }
+.dispersion-summary-card.vn .dispersion-summary-table tbody th { background:#ffe58d; }
+.dispersion-summary-card.pv .dispersion-summary-table tbody th { background:#e2e0e0; }
+.dispersion-brazil-row th, .dispersion-brazil-row td { font-weight:1000; border-top:2px solid #111; }
+.dispersion-summary-trend, .dispersion-detail-trend { font-variant-numeric:tabular-nums; font-weight:1000; }
+.dispersion-summary-trend span, .dispersion-detail-trend span { display:inline-block; margin-right:6px; font-size:15px; }
+.dispersion-detail-card { margin:0 0 18px; overflow:hidden; border:1px solid var(--border); border-radius:14px; background:#fff; box-shadow:var(--shadow); }
+.dispersion-detail-heading { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 15px; border-bottom:1px solid var(--border-hi); }
+.dispersion-detail-heading > div { display:flex; align-items:center; gap:10px; }
+.dispersion-detail-heading strong { font-family:'Syne',sans-serif; font-size:15px; }
+.dispersion-detail-heading span { padding:4px 8px; border-radius:999px; background:rgba(255,255,255,.65); font-size:10px; font-weight:900; }
+.dispersion-detail-heading small { color:rgba(0,0,0,.62); font-size:10px; font-weight:800; text-align:right; }
+.dispersion-detail-card.vn .dispersion-detail-heading { background:#f4c400; }
+.dispersion-detail-card.pv .dispersion-detail-heading { background:#aaa8a8; }
+.dispersion-detail-card.condicional .dispersion-detail-heading { background:#f0b75f; }
+.dispersion-detail-card.risco .dispersion-detail-heading { background:#f2d58d; }
+.dispersion-detail-card.expurgo .dispersion-detail-heading { background:#d5d5d5; }
+.dispersion-detail-card.pv.condicional .dispersion-detail-heading { background:#b8b8b8; }
+.dispersion-detail-card.pv.risco .dispersion-detail-heading { background:#d2d2d2; }
+.dispersion-table-scroll { overflow:auto; }
+.dispersion-detail-scroll { max-height:620px; }
+.dispersion-detail-table { width:max-content; min-width:100%; font-size:10.5px; }
+.dispersion-detail-table th { position:sticky; top:0; z-index:4; min-width:105px; padding:7px 8px; background:#f1f1f1; white-space:normal; line-height:1.18; }
+.dispersion-detail-table td { padding:6px 8px; }
+.dispersion-detail-table th:nth-child(1), .dispersion-detail-table td:nth-child(1) { position:sticky; left:0; z-index:5; min-width:46px; width:46px; background:#fff; }
+.dispersion-detail-table th:nth-child(2), .dispersion-detail-table td:nth-child(2) { position:sticky; left:46px; z-index:5; min-width:84px; width:84px; background:#fff; }
+.dispersion-detail-table th:nth-child(3), .dispersion-detail-table td:nth-child(3) { position:sticky; left:130px; z-index:5; min-width:230px; max-width:230px; background:#fff; box-shadow:6px 0 10px rgba(0,0,0,.05); }
+.dispersion-detail-table th:nth-child(-n+3) { z-index:7; background:#e8e8e8; }
+.dispersion-detail-table tbody tr:nth-child(even) td { background:#fafafa; }
+.dispersion-detail-table tbody tr:nth-child(even) td:nth-child(-n+3) { background:#fafafa; }
+.dispersion-detail-table .dealer-name { white-space:normal; text-align:left; line-height:1.2; }
+.dispersion-projection { background:#fff8cf !important; font-weight:1000; }
+.dispersion-method-note { margin:12px 0 0; padding:10px 12px; border-left:4px solid #111; border-radius:0 9px 9px 0; background:#fff; color:var(--muted); font-size:10px; line-height:1.5; }
+@media (max-width:1180px) { .dispersion-summary-grid { grid-template-columns:repeat(3,360px); } }
+@media (max-width:760px) { .dispersion-subtabs label { flex:1 1 calc(33.333% - 8px); padding:10px 12px; } .dispersion-detail-heading { align-items:flex-start; flex-direction:column; } .dispersion-detail-heading small { text-align:left; } }
+
 .empty { padding:60px 0; text-align:center; color:var(--muted); display:none; }
 footer { margin-top:40px; border-top:1px solid var(--border); padding:16px 10px 0; text-align:center; color:var(--muted); font-size:11px; line-height:1.55; }
 .footer-main { font-weight:800; color:rgba(20,21,23,.62); }
@@ -397,7 +454,7 @@ footer { margin-top:40px; border-top:1px solid var(--border); padding:16px 10px 
 <div class="wrap">
   <header>
     <div class="brand-wrap"><div class="logo"><img src="data:image/png;base64,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" alt="Renault"></div><div><div class="brand-tag">Renault · Voice of Customer</div><h1>KPIs de Qualidade</h1><div class="brand-sub">Comparativo diário · VN, PV e E-Reputation</div></div></div>
-    <div class="header-actions"><div class="pill">Gerado em 24/08/2026 08:17</div><div class="renault-bar"></div></div>
+    <div class="header-actions"><div class="pill">Gerado em 24/08/2026 15:05</div><div class="renault-bar"></div></div>
   </header>
 
   <div class="tabs">
@@ -406,6 +463,7 @@ footer { margin-top:40px; border-top:1px solid var(--border); padding:16px 10px 
     <button class="tab" onclick="switchSection('boreal-regional', this)">Boreal Regional</button>
     <button class="tab" onclick="switchSection('nps-modelo', this)">NPS por Modelo</button>
     <button class="tab" onclick="switchSection('concessionarias', this)">Ranking & Linha do Tempo</button>
+    <button class="tab" onclick="switchSection('dispersao', this)">Dispersão</button>
     <button class="tab" onclick="switchSection('verbalizacoes', this)">Verbalizações</button>
   </div>
 
@@ -8998,6 +9056,2693 @@ footer { margin-top:40px; border-top:1px solid var(--border); padding:16px 10px 
     </section>
     
 
+  
+    <section id="dispersao" class="section dispersion-section">
+      <input class="dispersion-subtab-control" type="radio" name="dispersionSubtab" id="dispersion-tab-resumo" checked>
+      <input class="dispersion-subtab-control" type="radio" name="dispersionSubtab" id="dispersion-tab-vn">
+      <input class="dispersion-subtab-control" type="radio" name="dispersionSubtab" id="dispersion-tab-pv">
+      <div class="dispersion-subtabs">
+        <label for="dispersion-tab-resumo">Resumo</label>
+        <label for="dispersion-tab-vn">Vendas</label>
+        <label for="dispersion-tab-pv">Pós-Venda</label>
+      </div>
+      <div class="dispersion-subsections">
+        <div id="dispersion-resumo" class="dispersion-subsection">
+          
+      <div class="dispersion-summary-day ">
+        <div class="sub-block-title ">Sexta-feira (21/08/2026)</div>
+        <div class="period-range-note">Resultados calculados até 20/08/2026</div>
+        <div class="dispersion-summary-grid">
+      <article class="dispersion-summary-card vn">
+        <div class="dispersion-summary-card-title">DISPERSÃO VN 6MM</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Qtde.<br>Dealers</th>
+              <th>Dealers<br>(Index &lt; 80,00%)</th>
+              <th>Dispersão</th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">235</td>
+            <td class="num">29</td>
+            <td class="num target-bad">12,34%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">71</td>
+            <td class="num">14</td>
+            <td class="num target-bad">19,72%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">58</td>
+            <td class="num">6</td>
+            <td class="num target-bad">10,34%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">48</td>
+            <td class="num">8</td>
+            <td class="num target-bad">16,67%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">58</td>
+            <td class="num">1</td>
+            <td class="num target-bad">1,72%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card vn">
+        <div class="dispersion-summary-card-title">DISPERSÃO VN MTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Qtde.<br>Dealers</th>
+              <th>Dealers<br>(Index &lt; 80,00%)</th>
+              <th>Dispersão<br><small>(Obj: 2,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">235</td>
+            <td class="num">27</td>
+            <td class="num target-bad">11,49%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-3</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">71</td>
+            <td class="num">8</td>
+            <td class="num target-bad">11,27%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">58</td>
+            <td class="num">7</td>
+            <td class="num target-bad">12,07%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">48</td>
+            <td class="num">6</td>
+            <td class="num target-bad">12,50%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-2</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">58</td>
+            <td class="num">6</td>
+            <td class="num target-bad">10,34%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card vn">
+        <div class="dispersion-summary-card-title">DISPERSÃO VN YTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Qtde.<br>Dealers</th>
+              <th>Dealers<br>(Index &lt; 80,00%)</th>
+              <th>Dispersão<br><small>(Obj: 4,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">235</td>
+            <td class="num">34</td>
+            <td class="num target-bad">14,47%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">71</td>
+            <td class="num">15</td>
+            <td class="num target-bad">21,13%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">58</td>
+            <td class="num">7</td>
+            <td class="num target-bad">12,07%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">48</td>
+            <td class="num">10</td>
+            <td class="num target-bad">20,83%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">58</td>
+            <td class="num">2</td>
+            <td class="num target-ok">3,45%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card pv">
+        <div class="dispersion-summary-card-title">DISPERSÃO PV 6MM</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Total<br>(- Expurgos)</th>
+              <th>Dealers<br>(Index &lt; 65,00%)</th>
+              <th>Dispersão<br><small>(Obj: 1,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">232</td>
+            <td class="num">6</td>
+            <td class="num target-bad">2,59%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">69</td>
+            <td class="num">1</td>
+            <td class="num target-bad">1,45%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">57</td>
+            <td class="num">1</td>
+            <td class="num target-bad">1,75%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">49</td>
+            <td class="num">2</td>
+            <td class="num target-bad">4,08%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">57</td>
+            <td class="num">2</td>
+            <td class="num target-bad">3,51%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card pv">
+        <div class="dispersion-summary-card-title">DISPERSÃO PV MTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Total<br>(- Expurgos)</th>
+              <th>Dealers<br>(Index &lt; 65,00%)</th>
+              <th>Dispersão<br><small>(Obj: 1,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">232</td>
+            <td class="num">31</td>
+            <td class="num target-bad">13,36%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+3</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">69</td>
+            <td class="num">10</td>
+            <td class="num target-bad">14,49%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">57</td>
+            <td class="num">9</td>
+            <td class="num target-bad">15,79%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+2</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">49</td>
+            <td class="num">6</td>
+            <td class="num target-bad">12,24%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">57</td>
+            <td class="num">6</td>
+            <td class="num target-bad">10,53%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-1</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card pv">
+        <div class="dispersion-summary-card-title">DISPERSÃO PV YTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Total<br>(- Expurgos)</th>
+              <th>Dealers<br>(Index &lt; 65,00%)</th>
+              <th>Dispersão<br><small>(Obj: 1,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">232</td>
+            <td class="num">7</td>
+            <td class="num target-bad">3,02%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">69</td>
+            <td class="num">2</td>
+            <td class="num target-bad">2,90%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">57</td>
+            <td class="num">2</td>
+            <td class="num target-bad">3,51%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">49</td>
+            <td class="num">1</td>
+            <td class="num target-bad">2,04%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">57</td>
+            <td class="num">2</td>
+            <td class="num target-bad">3,51%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+      </div>
+    
+          
+      <div class="dispersion-summary-day current">
+        <div class="sub-block-title current-title">Segunda-feira (24/08/2026)</div>
+        <div class="period-range-note">Resultados calculados até 23/08/2026</div>
+        <div class="dispersion-summary-grid">
+      <article class="dispersion-summary-card vn">
+        <div class="dispersion-summary-card-title">DISPERSÃO VN 6MM</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Qtde.<br>Dealers</th>
+              <th>Dealers<br>(Index &lt; 80,00%)</th>
+              <th>Dispersão</th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">235</td>
+            <td class="num">30</td>
+            <td class="num target-bad">12,77%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">71</td>
+            <td class="num">14</td>
+            <td class="num target-bad">19,72%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">58</td>
+            <td class="num">6</td>
+            <td class="num target-bad">10,34%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">48</td>
+            <td class="num">9</td>
+            <td class="num target-bad">18,75%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">58</td>
+            <td class="num">1</td>
+            <td class="num target-bad">1,72%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card vn">
+        <div class="dispersion-summary-card-title">DISPERSÃO VN MTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Qtde.<br>Dealers</th>
+              <th>Dealers<br>(Index &lt; 80,00%)</th>
+              <th>Dispersão<br><small>(Obj: 2,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">235</td>
+            <td class="num">28</td>
+            <td class="num target-bad">11,91%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">71</td>
+            <td class="num">8</td>
+            <td class="num target-bad">11,27%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">58</td>
+            <td class="num">8</td>
+            <td class="num target-bad">13,79%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">48</td>
+            <td class="num">6</td>
+            <td class="num target-bad">12,50%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">58</td>
+            <td class="num">6</td>
+            <td class="num target-bad">10,34%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card vn">
+        <div class="dispersion-summary-card-title">DISPERSÃO VN YTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Qtde.<br>Dealers</th>
+              <th>Dealers<br>(Index &lt; 80,00%)</th>
+              <th>Dispersão<br><small>(Obj: 4,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">235</td>
+            <td class="num">34</td>
+            <td class="num target-bad">14,47%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">71</td>
+            <td class="num">15</td>
+            <td class="num target-bad">21,13%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">58</td>
+            <td class="num">7</td>
+            <td class="num target-bad">12,07%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">48</td>
+            <td class="num">10</td>
+            <td class="num target-bad">20,83%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">58</td>
+            <td class="num">2</td>
+            <td class="num target-ok">3,45%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card pv">
+        <div class="dispersion-summary-card-title">DISPERSÃO PV 6MM</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Total<br>(- Expurgos)</th>
+              <th>Dealers<br>(Index &lt; 65,00%)</th>
+              <th>Dispersão<br><small>(Obj: 1,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">231</td>
+            <td class="num">6</td>
+            <td class="num target-bad">2,60%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">69</td>
+            <td class="num">1</td>
+            <td class="num target-bad">1,45%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">56</td>
+            <td class="num">1</td>
+            <td class="num target-bad">1,79%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">49</td>
+            <td class="num">2</td>
+            <td class="num target-bad">4,08%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">57</td>
+            <td class="num">2</td>
+            <td class="num target-bad">3,51%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card pv">
+        <div class="dispersion-summary-card-title">DISPERSÃO PV MTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Total<br>(- Expurgos)</th>
+              <th>Dealers<br>(Index &lt; 65,00%)</th>
+              <th>Dispersão<br><small>(Obj: 1,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">231</td>
+            <td class="num">29</td>
+            <td class="num target-bad">12,55%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-2</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">69</td>
+            <td class="num">10</td>
+            <td class="num target-bad">14,49%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">56</td>
+            <td class="num">7</td>
+            <td class="num target-bad">12,50%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-2</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">49</td>
+            <td class="num">7</td>
+            <td class="num target-bad">14,29%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">57</td>
+            <td class="num">5</td>
+            <td class="num target-bad">8,77%</td>
+            <td class="dispersion-summary-trend good"><span>↓</span><strong>-1</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-summary-card pv">
+        <div class="dispersion-summary-card-title">DISPERSÃO PV YTD</div>
+        <div class="dispersion-table-scroll">
+          <table class="dispersion-summary-table">
+            <thead><tr>
+              <th>Regional</th>
+              <th>Total<br>(- Expurgos)</th>
+              <th>Dealers<br>(Index &lt; 65,00%)</th>
+              <th>Dispersão<br><small>(Obj: 1,00%)</small></th>
+              <th>Trend</th>
+            </tr></thead>
+            <tbody>
+          <tr class="dispersion-brazil-row">
+            <th>BRASIL</th>
+            <td class="num">231</td>
+            <td class="num">8</td>
+            <td class="num target-bad">3,46%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R1</th>
+            <td class="num">69</td>
+            <td class="num">2</td>
+            <td class="num target-bad">2,90%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R2</th>
+            <td class="num">56</td>
+            <td class="num">2</td>
+            <td class="num target-bad">3,57%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R3</th>
+            <td class="num">49</td>
+            <td class="num">2</td>
+            <td class="num target-bad">4,08%</td>
+            <td class="dispersion-summary-trend bad"><span>↑</span><strong>+1</strong></td>
+          </tr>
+        
+          <tr class="">
+            <th>R4</th>
+            <td class="num">57</td>
+            <td class="num">2</td>
+            <td class="num target-bad">3,51%</td>
+            <td class="dispersion-summary-trend neutral"><span>=</span><strong>+0</strong></td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+      </div>
+    
+        </div>
+        <div id="dispersion-vn" class="dispersion-subsection">
+          
+      <article class="dispersion-detail-card vn dispersao">
+        <div class="dispersion-detail-heading">
+          <div><strong>Dispersão Vendas</strong><span>30 concessionária(s)</span></div>
+          <small>NPS Index 6MM abaixo de 80%.</small>
+        </div>
+        <div class="dispersion-table-scroll dispersion-detail-scroll">
+          <table class="dispersion-detail-table">
+            <thead><tr>
+              <th>#</th><th>BIR</th><th>Concessionária</th><th>Região</th>
+              <th>Jun/2026 6MM</th>
+              <th>Jul/2026 6MM</th>
+              <th>6MM Referência (01/08)</th>
+              <th>6MM D-2 (22/08)</th>
+              <th>6MM D-1 (23/08)</th>
+              <th>Trend<br>D-1 × Referência</th>
+              <th>Qtd. pesquisas<br>respondidas no mês</th>
+              <th>Qtd. notas 5★<br>para sair</th>
+              <th>Qtd. notas 5★<br>para objetivo (90,00%)</th>
+              <th>NPS INDEX<br>MTD</th><th>NPS INDEX<br>YTD</th>
+            </tr></thead>
+            <tbody>
+          <tr>
+            <td class="dealer-position">1</td>
+            <td class="dispersion-bir">07600776R</td>
+            <td class="dealer-name">DE MARCO CANOINHAS</td>
+            <td>R1</td>
+            <td class="num">-8,33%</td>
+            <td class="num">-8,33%</td>
+            <td class="num">-8,33%</td>
+            <td class="num">-8,33%</td>
+            <td class="num target-bad">-8,33%</td>
+            <td class="dispersion-detail-trend neutral"><span>=</span><strong>+0,00</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">14</td>
+            <td class="num dispersion-projection">30</td>
+            <td class="num">-</td>
+            <td class="num target-bad">-8,33%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">2</td>
+            <td class="dispersion-bir">07600813R</td>
+            <td class="dealer-name">AUTO FRANCE MACAE</td>
+            <td>R3</td>
+            <td class="num">30,00%</td>
+            <td class="num">30,00%</td>
+            <td class="num">30,00%</td>
+            <td class="num">12,50%</td>
+            <td class="num target-bad">12,50%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-17,50</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">14</td>
+            <td class="num dispersion-projection">31</td>
+            <td class="num">-</td>
+            <td class="num target-bad">30,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">3</td>
+            <td class="dispersion-bir">07600584R</td>
+            <td class="dealer-name">R POINT VILA PRUDENTE</td>
+            <td>R2</td>
+            <td class="num">47,22%</td>
+            <td class="num">47,22%</td>
+            <td class="num">47,22%</td>
+            <td class="num">47,22%</td>
+            <td class="num target-bad">47,22%</td>
+            <td class="dispersion-detail-trend neutral"><span>=</span><strong>+0,00</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">15</td>
+            <td class="num dispersion-projection">39</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">56,82%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">4</td>
+            <td class="dispersion-bir">07600633R</td>
+            <td class="dealer-name">DE MARCO CONCORDIA</td>
+            <td>R1</td>
+            <td class="num">100,00%</td>
+            <td class="num">55,56%</td>
+            <td class="num">55,56%</td>
+            <td class="num">50,00%</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-5,56</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">12</td>
+            <td class="num dispersion-projection">32</td>
+            <td class="num">-</td>
+            <td class="num target-bad">55,56%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">5</td>
+            <td class="dispersion-bir">07600822R</td>
+            <td class="dealer-name">ORVEL VITÓRIA</td>
+            <td>R3</td>
+            <td class="num">78,57%</td>
+            <td class="num">78,57%</td>
+            <td class="num">78,57%</td>
+            <td class="num">62,50%</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-28,57</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">12</td>
+            <td class="num">-</td>
+            <td class="num target-bad">81,25%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">6</td>
+            <td class="dispersion-bir">07601179R</td>
+            <td class="dealer-name">ORVEL VILA VELHA</td>
+            <td>R3</td>
+            <td class="num">75,00%</td>
+            <td class="num">72,22%</td>
+            <td class="num">72,22%</td>
+            <td class="num">56,25%</td>
+            <td class="num target-bad">56,25%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-15,97</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">10</td>
+            <td class="num dispersion-projection">27</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="num target-bad">68,18%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">7</td>
+            <td class="dispersion-bir">07600826R</td>
+            <td class="dealer-name">ORVEL SERRA</td>
+            <td>R3</td>
+            <td class="num">70,45%</td>
+            <td class="num">67,31%</td>
+            <td class="num">67,31%</td>
+            <td class="num">61,36%</td>
+            <td class="num target-bad">61,36%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-5,94</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">11</td>
+            <td class="num dispersion-projection">32</td>
+            <td class="num">-</td>
+            <td class="num target-bad">69,64%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">8</td>
+            <td class="dispersion-bir">07601062R</td>
+            <td class="dealer-name">AMAZONAS SANTANA</td>
+            <td>R2</td>
+            <td class="num">66,67%</td>
+            <td class="num">100,00%</td>
+            <td class="num">100,00%</td>
+            <td class="num">62,50%</td>
+            <td class="num target-bad">62,50%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-37,50</strong></td>
+            <td class="num">1</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">11</td>
+            <td class="num target-bad">-50,00%</td>
+            <td class="num target-bad">50,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">9</td>
+            <td class="dispersion-bir">07600762R</td>
+            <td class="dealer-name">DR SUL CAVALHADA</td>
+            <td>R1</td>
+            <td class="num">76,04%</td>
+            <td class="num">72,41%</td>
+            <td class="num">72,41%</td>
+            <td class="num">66,67%</td>
+            <td class="num target-bad">66,67%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-5,75</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">20</td>
+            <td class="num dispersion-projection">70</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="num target-bad">69,70%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">10</td>
+            <td class="dispersion-bir">07601294R</td>
+            <td class="dealer-name">DR SUL LAGES</td>
+            <td>R1</td>
+            <td class="num">75,00%</td>
+            <td class="num">71,43%</td>
+            <td class="num">71,43%</td>
+            <td class="num">66,67%</td>
+            <td class="num target-bad">66,67%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-4,76</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">14</td>
+            <td class="num">-</td>
+            <td class="num target-bad">75,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">11</td>
+            <td class="dispersion-bir">07600921R</td>
+            <td class="dealer-name">PROESTE MARILIA</td>
+            <td>R2</td>
+            <td class="num">42,86%</td>
+            <td class="num">42,86%</td>
+            <td class="num">42,86%</td>
+            <td class="num">66,67%</td>
+            <td class="num target-bad">66,67%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+23,81</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">14</td>
+            <td class="num">-</td>
+            <td class="num target-bad">55,56%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">12</td>
+            <td class="dispersion-bir">07601295R</td>
+            <td class="dealer-name">DR SUL ARARANGUÁ</td>
+            <td>R1</td>
+            <td class="num">66,25%</td>
+            <td class="num">67,05%</td>
+            <td class="num">67,05%</td>
+            <td class="num">69,32%</td>
+            <td class="num target-bad">69,32%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,27</strong></td>
+            <td class="num">1</td>
+            <td class="num dispersion-projection">12</td>
+            <td class="num dispersion-projection">46</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">68,48%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">13</td>
+            <td class="dispersion-bir">07600391R</td>
+            <td class="dealer-name">BARIGUI CURITIBA PAROLIN</td>
+            <td>R1</td>
+            <td class="num">65,18%</td>
+            <td class="num">64,39%</td>
+            <td class="num">64,39%</td>
+            <td class="num">69,70%</td>
+            <td class="num target-bad">69,70%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+5,30</strong></td>
+            <td class="num">3</td>
+            <td class="num dispersion-projection">17</td>
+            <td class="num dispersion-projection">67</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">67,57%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">14</td>
+            <td class="dispersion-bir">07601004R</td>
+            <td class="dealer-name">CARMO MONTES CLAROS</td>
+            <td>R3</td>
+            <td class="num">69,00%</td>
+            <td class="num">65,74%</td>
+            <td class="num">65,74%</td>
+            <td class="num">69,79%</td>
+            <td class="num target-bad">69,79%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+4,05</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">13</td>
+            <td class="num dispersion-projection">49</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">70,16%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">15</td>
+            <td class="dispersion-bir">07600528R</td>
+            <td class="dealer-name">R POINT VILA IPIRANGA</td>
+            <td>R2</td>
+            <td class="num">88,89%</td>
+            <td class="num">56,82%</td>
+            <td class="num">56,82%</td>
+            <td class="num">70,00%</td>
+            <td class="num target-bad">70,00%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+13,18</strong></td>
+            <td class="num">5</td>
+            <td class="num dispersion-projection">8</td>
+            <td class="num dispersion-projection">30</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">70,31%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">16</td>
+            <td class="dispersion-bir">07600608R</td>
+            <td class="dealer-name">VALEC VALINHOS</td>
+            <td>R2</td>
+            <td class="num">65,91%</td>
+            <td class="num">68,75%</td>
+            <td class="num">68,75%</td>
+            <td class="num">73,21%</td>
+            <td class="num target-bad">73,21%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+4,46</strong></td>
+            <td class="num">3</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">24</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">75,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">17</td>
+            <td class="dispersion-bir">07600453R</td>
+            <td class="dealer-name">BARIGUI CURITIBA CAMPINA DO SIQUEIRA</td>
+            <td>R1</td>
+            <td class="num">74,36%</td>
+            <td class="num">80,00%</td>
+            <td class="num">80,00%</td>
+            <td class="num">73,84%</td>
+            <td class="num target-bad">74,43%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-5,57</strong></td>
+            <td class="num">6</td>
+            <td class="num dispersion-projection">13</td>
+            <td class="num dispersion-projection">69</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="num target-bad">75,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">18</td>
+            <td class="dispersion-bir">07600569R</td>
+            <td class="dealer-name">BARIGUI LONDRINA</td>
+            <td>R1</td>
+            <td class="num">67,05%</td>
+            <td class="num">76,04%</td>
+            <td class="num">76,04%</td>
+            <td class="num">75,00%</td>
+            <td class="num target-bad">75,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,04</strong></td>
+            <td class="num">1</td>
+            <td class="num dispersion-projection">6</td>
+            <td class="num dispersion-projection">35</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">70,19%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">19</td>
+            <td class="dispersion-bir">07601126R</td>
+            <td class="dealer-name">DE MARCO SAO MIGUEL DOESTE</td>
+            <td>R1</td>
+            <td class="num">66,67%</td>
+            <td class="num">75,00%</td>
+            <td class="num">75,00%</td>
+            <td class="num">75,00%</td>
+            <td class="num target-bad">75,00%</td>
+            <td class="dispersion-detail-trend neutral"><span>=</span><strong>+0,00</strong></td>
+            <td class="num">1</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">6</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">80,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">20</td>
+            <td class="dispersion-bir">07600213R</td>
+            <td class="dealer-name">LEAUTO TIJUCA</td>
+            <td>R3</td>
+            <td class="num">72,22%</td>
+            <td class="num">76,09%</td>
+            <td class="num">76,09%</td>
+            <td class="num">75,00%</td>
+            <td class="num target-bad">75,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,09</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">7</td>
+            <td class="num dispersion-projection">38</td>
+            <td class="num target-bad">81,25%</td>
+            <td class="num target-bad">76,85%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">21</td>
+            <td class="dispersion-bir">07601196R</td>
+            <td class="dealer-name">DU NORT UMARIZAL</td>
+            <td>R4</td>
+            <td class="num">90,91%</td>
+            <td class="num">83,33%</td>
+            <td class="num">83,33%</td>
+            <td class="num">76,00%</td>
+            <td class="num target-bad">76,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-7,33</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">35</td>
+            <td class="num target-bad">0,00%</td>
+            <td class="num target-bad">78,57%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">22</td>
+            <td class="dispersion-bir">07601214R</td>
+            <td class="dealer-name">GLOBO VEÍCULOS ITAJAÍ</td>
+            <td>R1</td>
+            <td class="num">75,00%</td>
+            <td class="num">72,73%</td>
+            <td class="num">72,73%</td>
+            <td class="num">76,92%</td>
+            <td class="num target-bad">76,92%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+4,20</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">17</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">78,57%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">23</td>
+            <td class="dispersion-bir">07601047R</td>
+            <td class="dealer-name">GUARA DOURADOS</td>
+            <td>R1</td>
+            <td class="num">71,88%</td>
+            <td class="num">75,00%</td>
+            <td class="num">75,00%</td>
+            <td class="num">77,38%</td>
+            <td class="num target-bad">77,38%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,38</strong></td>
+            <td class="num">5</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">27</td>
+            <td class="num target-ok">95,00%</td>
+            <td class="num target-bad">79,35%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">24</td>
+            <td class="dispersion-bir">07600983R</td>
+            <td class="dealer-name">GALA CANOAS</td>
+            <td>R1</td>
+            <td class="num">66,67%</td>
+            <td class="num">70,24%</td>
+            <td class="num">70,24%</td>
+            <td class="num">77,50%</td>
+            <td class="num target-bad">77,50%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+7,26</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">25</td>
+            <td class="num">-</td>
+            <td class="num target-bad">70,24%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">25</td>
+            <td class="dispersion-bir">07601330R</td>
+            <td class="dealer-name">GLOBO VEÍCULOS BALNÉARIO CAMBORIÚ</td>
+            <td>R1</td>
+            <td class="num">65,00%</td>
+            <td class="num">71,88%</td>
+            <td class="num">71,88%</td>
+            <td class="num">77,50%</td>
+            <td class="num target-bad">77,50%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+5,62</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">13</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">77,50%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">26</td>
+            <td class="dispersion-bir">07600312R</td>
+            <td class="dealer-name">LEAUTO ABOLICAO</td>
+            <td>R3</td>
+            <td class="num">81,25%</td>
+            <td class="num">83,33%</td>
+            <td class="num">83,33%</td>
+            <td class="num">78,00%</td>
+            <td class="num target-bad">78,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-5,33</strong></td>
+            <td class="num">8</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">30</td>
+            <td class="num target-bad">68,75%</td>
+            <td class="num target-bad">79,63%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">27</td>
+            <td class="dispersion-bir">07601168R</td>
+            <td class="dealer-name">ROMA CONTAGEM</td>
+            <td>R3</td>
+            <td class="num">82,89%</td>
+            <td class="num">78,95%</td>
+            <td class="num">78,95%</td>
+            <td class="num">78,57%</td>
+            <td class="num target-bad">78,57%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,38</strong></td>
+            <td class="num">8</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">24</td>
+            <td class="num target-ok">93,75%</td>
+            <td class="num target-bad">84,48%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">28</td>
+            <td class="dispersion-bir">07600012R</td>
+            <td class="dealer-name">IESA SAO JOAO</td>
+            <td>R1</td>
+            <td class="num">70,74%</td>
+            <td class="num">72,64%</td>
+            <td class="num">72,64%</td>
+            <td class="num">78,57%</td>
+            <td class="num target-bad">78,57%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+5,93</strong></td>
+            <td class="num">17</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">72</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">79,86%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">29</td>
+            <td class="dispersion-bir">07600383R</td>
+            <td class="dealer-name">VALEC OROSIMBO MAIA</td>
+            <td>R2</td>
+            <td class="num">62,50%</td>
+            <td class="num">76,09%</td>
+            <td class="num">76,09%</td>
+            <td class="num">78,72%</td>
+            <td class="num target-bad">78,72%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,64</strong></td>
+            <td class="num">5</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">53</td>
+            <td class="num target-ok">90,00%</td>
+            <td class="num target-bad">77,45%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">30</td>
+            <td class="dispersion-bir">07601169R</td>
+            <td class="dealer-name">JORLAN FRANCE BARÃO</td>
+            <td>R3</td>
+            <td class="num">80,45%</td>
+            <td class="num">81,15%</td>
+            <td class="num">81,15%</td>
+            <td class="num">80,43%</td>
+            <td class="num target-bad">79,85%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,30</strong></td>
+            <td class="num">11</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">68</td>
+            <td class="num target-bad">88,64%</td>
+            <td class="num target-bad">82,47%</td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-detail-card vn condicional">
+        <div class="dispersion-detail-heading">
+          <div><strong>Condicional Vendas</strong><span>9 concessionária(s)</span></div>
+          <small>Já estiveram na Dispersão, superaram 80% e ainda não atingiram 90%.</small>
+        </div>
+        <div class="dispersion-table-scroll dispersion-detail-scroll">
+          <table class="dispersion-detail-table">
+            <thead><tr>
+              <th>#</th><th>BIR</th><th>Concessionária</th><th>Região</th>
+              <th>Jun/2026 6MM</th>
+              <th>Jul/2026 6MM</th>
+              <th>6MM Referência (01/08)</th>
+              <th>6MM D-2 (22/08)</th>
+              <th>6MM D-1 (23/08)</th>
+              <th>Trend<br>D-1 × Referência</th>
+              <th>Qtd. pesquisas<br>respondidas no mês</th>
+              <th>Qtd. detratoras<br>para entrar</th>
+              <th>Qtd. notas 5★<br>para objetivo (90,00%)</th>
+              <th>NPS INDEX<br>MTD</th><th>NPS INDEX<br>YTD</th>
+            </tr></thead>
+            <tbody>
+          <tr>
+            <td class="dealer-position">1</td>
+            <td class="dispersion-bir">07601240R</td>
+            <td class="dealer-name">ROMA FRANCE RECREIO</td>
+            <td>R3</td>
+            <td class="num">75,00%</td>
+            <td class="num">79,55%</td>
+            <td class="num">79,55%</td>
+            <td class="num">80,71%</td>
+            <td class="num target-bad">80,71%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+1,17</strong></td>
+            <td class="num">5</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">33</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">83,54%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">2</td>
+            <td class="dispersion-bir">07601061R</td>
+            <td class="dealer-name">SAGA LEMANS PORTO VELHO</td>
+            <td>R4</td>
+            <td class="num">57,81%</td>
+            <td class="num">72,50%</td>
+            <td class="num">72,50%</td>
+            <td class="num">82,05%</td>
+            <td class="num target-bad">82,05%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+9,55</strong></td>
+            <td class="num">11</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">31</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">79,88%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">3</td>
+            <td class="dispersion-bir">07601314R</td>
+            <td class="dealer-name">VALEC ITU</td>
+            <td>R2</td>
+            <td class="num">66,67%</td>
+            <td class="num">71,15%</td>
+            <td class="num">71,15%</td>
+            <td class="num">82,14%</td>
+            <td class="num target-bad">82,14%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+10,99</strong></td>
+            <td class="num">8</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">17</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">82,14%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">4</td>
+            <td class="dispersion-bir">07600100R</td>
+            <td class="dealer-name">GLOBO VEICULOS FLORIANOPOLIS</td>
+            <td>R1</td>
+            <td class="num">73,91%</td>
+            <td class="num">83,33%</td>
+            <td class="num">83,33%</td>
+            <td class="num">83,93%</td>
+            <td class="num target-bad">83,33%</td>
+            <td class="dispersion-detail-trend neutral"><span>=</span><strong>+0,00</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">18</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">81,25%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">5</td>
+            <td class="dispersion-bir">07600358R</td>
+            <td class="dealer-name">GLOBO VEICULOS VILA ISABEL</td>
+            <td>R1</td>
+            <td class="num">82,22%</td>
+            <td class="num">81,25%</td>
+            <td class="num">81,25%</td>
+            <td class="num">83,65%</td>
+            <td class="num target-bad">83,65%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,40</strong></td>
+            <td class="num">11</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">33</td>
+            <td class="num target-bad">84,09%</td>
+            <td class="num target-bad">81,78%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">6</td>
+            <td class="dispersion-bir">07600804R</td>
+            <td class="dealer-name">MAZZUTTI CACOAL</td>
+            <td>R4</td>
+            <td class="num">66,67%</td>
+            <td class="num">80,56%</td>
+            <td class="num">80,56%</td>
+            <td class="num">84,09%</td>
+            <td class="num target-bad">84,09%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+3,54</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">7</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">83,33%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">7</td>
+            <td class="dispersion-bir">07600013R</td>
+            <td class="dealer-name">LEAUTO BOTAFOGO</td>
+            <td>R3</td>
+            <td class="num">60,94%</td>
+            <td class="num">68,75%</td>
+            <td class="num">68,75%</td>
+            <td class="num">84,62%</td>
+            <td class="num target-bad">84,62%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+15,87</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">7</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">68,75%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">8</td>
+            <td class="dispersion-bir">07601188R</td>
+            <td class="dealer-name">DIJON DIVINÓPOLIS</td>
+            <td>R3</td>
+            <td class="num">72,92%</td>
+            <td class="num">76,79%</td>
+            <td class="num">76,79%</td>
+            <td class="num">86,36%</td>
+            <td class="num target-bad">86,36%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+9,58</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num">-</td>
+            <td class="num target-bad">76,79%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">9</td>
+            <td class="dispersion-bir">07600109R</td>
+            <td class="dealer-name">DR SUL CAXIAS DO SUL</td>
+            <td>R1</td>
+            <td class="num">78,03%</td>
+            <td class="num">84,56%</td>
+            <td class="num">84,56%</td>
+            <td class="num">89,52%</td>
+            <td class="num target-bad">89,52%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+4,96</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">80,92%</td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-detail-card vn risco">
+        <div class="dispersion-detail-heading">
+          <div><strong>Risco Vendas</strong><span>11 concessionária(s)</span></div>
+          <small>Entre 80% e 85%, em queda e sem Condicional ativa.</small>
+        </div>
+        <div class="dispersion-table-scroll dispersion-detail-scroll">
+          <table class="dispersion-detail-table">
+            <thead><tr>
+              <th>#</th><th>BIR</th><th>Concessionária</th><th>Região</th>
+              <th>Jun/2026 6MM</th>
+              <th>Jul/2026 6MM</th>
+              <th>6MM Referência (01/08)</th>
+              <th>6MM D-2 (22/08)</th>
+              <th>6MM D-1 (23/08)</th>
+              <th>Trend<br>D-1 × Referência</th>
+              <th>Qtd. pesquisas<br>respondidas no mês</th>
+              <th>Qtd. detratoras<br>para entrar</th>
+              <th>Qtd. notas 5★<br>para objetivo (90,00%)</th>
+              <th>NPS INDEX<br>MTD</th><th>NPS INDEX<br>YTD</th>
+            </tr></thead>
+            <tbody>
+          <tr>
+            <td class="dealer-position">1</td>
+            <td class="dispersion-bir">07600917R</td>
+            <td class="dealer-name">R POINT BRAZ LEME</td>
+            <td>R2</td>
+            <td class="num">86,67%</td>
+            <td class="num">87,50%</td>
+            <td class="num">87,50%</td>
+            <td class="num">80,00%</td>
+            <td class="num target-bad">80,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-7,50</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">10</td>
+            <td class="num">-</td>
+            <td class="num target-bad">87,50%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">2</td>
+            <td class="dispersion-bir">07601220R</td>
+            <td class="dealer-name">BARIGUI PARANAGUÁ</td>
+            <td>R1</td>
+            <td class="num">83,33%</td>
+            <td class="num">82,89%</td>
+            <td class="num">82,89%</td>
+            <td class="num">80,88%</td>
+            <td class="num target-bad">80,88%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,01</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">16</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">84,52%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">3</td>
+            <td class="dispersion-bir">07600897R</td>
+            <td class="dealer-name">GRAND CITE</td>
+            <td>R4</td>
+            <td class="num">81,25%</td>
+            <td class="num">85,00%</td>
+            <td class="num">85,00%</td>
+            <td class="num">82,03%</td>
+            <td class="num target-bad">82,03%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,97</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">26</td>
+            <td class="num target-bad">68,75%</td>
+            <td class="num target-bad">83,09%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">4</td>
+            <td class="dispersion-bir">07600991R</td>
+            <td class="dealer-name">GUARA COSTA E SILVA</td>
+            <td>R1</td>
+            <td class="num">86,21%</td>
+            <td class="num">87,50%</td>
+            <td class="num">87,50%</td>
+            <td class="num">82,50%</td>
+            <td class="num target-bad">82,50%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-5,00</strong></td>
+            <td class="num">13</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">38</td>
+            <td class="num target-bad">73,08%</td>
+            <td class="num target-bad">84,21%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">5</td>
+            <td class="dispersion-bir">07600332R</td>
+            <td class="dealer-name">DESTAQUE FRANCE MOGI</td>
+            <td>R2</td>
+            <td class="num">85,71%</td>
+            <td class="num">89,47%</td>
+            <td class="num">89,47%</td>
+            <td class="num">82,61%</td>
+            <td class="num target-bad">82,61%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-6,86</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">17</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="num target-bad">82,61%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">6</td>
+            <td class="dispersion-bir">07600501R</td>
+            <td class="dealer-name">BRUNE SALVADOR</td>
+            <td>R4</td>
+            <td class="num">86,36%</td>
+            <td class="num">84,17%</td>
+            <td class="num">84,17%</td>
+            <td class="num">83,47%</td>
+            <td class="num target-bad">83,19%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,98</strong></td>
+            <td class="num">23</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">81</td>
+            <td class="num target-bad">81,52%</td>
+            <td class="num target-bad">84,42%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">7</td>
+            <td class="dispersion-bir">07600075R</td>
+            <td class="dealer-name">VALEC JUNDIAI</td>
+            <td>R2</td>
+            <td class="num">88,50%</td>
+            <td class="num">86,06%</td>
+            <td class="num">86,06%</td>
+            <td class="num">83,65%</td>
+            <td class="num target-bad">83,96%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,10</strong></td>
+            <td class="num">11</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">32</td>
+            <td class="num target-bad">75,00%</td>
+            <td class="num target-bad">83,59%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">8</td>
+            <td class="dispersion-bir">07600442R</td>
+            <td class="dealer-name">NISSUL PELOTAS</td>
+            <td>R1</td>
+            <td class="num">79,17%</td>
+            <td class="num">86,11%</td>
+            <td class="num">86,11%</td>
+            <td class="num">84,09%</td>
+            <td class="num target-bad">84,09%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,02</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">7</td>
+            <td class="num target-bad">75,00%</td>
+            <td class="num target-bad">84,09%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">9</td>
+            <td class="dispersion-bir">07600973R</td>
+            <td class="dealer-name">EURO RIBEIRAO PRETO</td>
+            <td>R2</td>
+            <td class="num">86,94%</td>
+            <td class="num">85,47%</td>
+            <td class="num">85,47%</td>
+            <td class="num">84,67%</td>
+            <td class="num target-bad">84,67%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,81</strong></td>
+            <td class="num">11</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">40</td>
+            <td class="num target-bad">84,09%</td>
+            <td class="num target-bad">85,29%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">10</td>
+            <td class="dispersion-bir">07600353R</td>
+            <td class="dealer-name">ITAVEMA FRANCE TAUBATE</td>
+            <td>R2</td>
+            <td class="num">83,82%</td>
+            <td class="num">85,14%</td>
+            <td class="num">85,14%</td>
+            <td class="num">84,87%</td>
+            <td class="num target-bad">84,87%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,27</strong></td>
+            <td class="num">8</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">20</td>
+            <td class="num target-ok">93,75%</td>
+            <td class="num target-bad">86,67%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">11</td>
+            <td class="dispersion-bir">07600667R</td>
+            <td class="dealer-name">VIA MONDO POUSO ALEGRE</td>
+            <td>R3</td>
+            <td class="num">97,06%</td>
+            <td class="num">92,50%</td>
+            <td class="num">92,50%</td>
+            <td class="num">85,00%</td>
+            <td class="num target-bad">85,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-7,50</strong></td>
+            <td class="num">6</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">10</td>
+            <td class="num target-bad">66,67%</td>
+            <td class="num target-bad">86,54%</td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+        </div>
+        <div id="dispersion-pv" class="dispersion-subsection">
+          
+      <article class="dispersion-detail-card pv dispersao">
+        <div class="dispersion-detail-heading">
+          <div><strong>Dispersão Pós-Venda</strong><span>6 concessionária(s)</span></div>
+          <small>NPS Index 6MM abaixo de 65% e pelo menos 48 pesquisas no período.</small>
+        </div>
+        <div class="dispersion-table-scroll dispersion-detail-scroll">
+          <table class="dispersion-detail-table">
+            <thead><tr>
+              <th>#</th><th>BIR</th><th>Concessionária</th><th>Região</th>
+              <th>Jun/2026 6MM</th>
+              <th>Jul/2026 6MM</th>
+              <th>6MM Referência (01/08)</th>
+              <th>6MM D-2 (22/08)</th>
+              <th>6MM D-1 (23/08)</th>
+              <th>Trend<br>D-1 × Referência</th>
+              <th>Qtd. pesquisas<br>respondidas no mês</th>
+              <th>Qtd. notas 5★<br>para sair</th>
+              <th>Qtd. notas 5★<br>para objetivo (85,00%)</th>
+              <th>NPS INDEX<br>MTD</th><th>NPS INDEX<br>YTD</th>
+            </tr></thead>
+            <tbody>
+          <tr>
+            <td class="dealer-position">1</td>
+            <td class="dispersion-bir">07600822R</td>
+            <td class="dealer-name">ORVEL VITÓRIA</td>
+            <td>R3</td>
+            <td class="num">56,06%</td>
+            <td class="num">57,07%</td>
+            <td class="num">57,07%</td>
+            <td class="num">54,41%</td>
+            <td class="num target-bad">54,41%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,65</strong></td>
+            <td class="num">7</td>
+            <td class="num dispersion-projection">16</td>
+            <td class="num dispersion-projection">104</td>
+            <td class="num target-bad">42,86%</td>
+            <td class="num target-bad">55,19%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">2</td>
+            <td class="dispersion-bir">07600391R</td>
+            <td class="dealer-name">BARIGUI CURITIBA PAROLIN</td>
+            <td>R1</td>
+            <td class="num">60,08%</td>
+            <td class="num">56,79%</td>
+            <td class="num">57,07%</td>
+            <td class="num">57,58%</td>
+            <td class="num target-bad">57,58%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+0,50</strong></td>
+            <td class="num">18</td>
+            <td class="num dispersion-projection">35</td>
+            <td class="num dispersion-projection">302</td>
+            <td class="num target-bad">62,50%</td>
+            <td class="num target-bad">57,43%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">3</td>
+            <td class="dispersion-bir">07600948R</td>
+            <td class="dealer-name">REGENCE FORTALEZA</td>
+            <td>R4</td>
+            <td class="num">47,04%</td>
+            <td class="num">53,85%</td>
+            <td class="num">53,85%</td>
+            <td class="num">61,65%</td>
+            <td class="num target-bad">61,65%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+7,81</strong></td>
+            <td class="num">23</td>
+            <td class="num dispersion-projection">12</td>
+            <td class="num dispersion-projection">184</td>
+            <td class="num target-bad">76,09%</td>
+            <td class="num target-bad">57,63%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">4</td>
+            <td class="dispersion-bir">07601062R</td>
+            <td class="dealer-name">AMAZONAS SANTANA</td>
+            <td>R2</td>
+            <td class="num">65,42%</td>
+            <td class="num">59,38%</td>
+            <td class="num">59,38%</td>
+            <td class="num">61,78%</td>
+            <td class="num target-bad">61,78%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,41</strong></td>
+            <td class="num">10</td>
+            <td class="num dispersion-projection">8</td>
+            <td class="num dispersion-projection">135</td>
+            <td class="num target-bad">70,00%</td>
+            <td class="num target-bad">60,71%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">5</td>
+            <td class="dispersion-bir">07600839R</td>
+            <td class="dealer-name">NAVESA GOIANIA</td>
+            <td>R3</td>
+            <td class="num">63,50%</td>
+            <td class="num">63,58%</td>
+            <td class="num">63,87%</td>
+            <td class="num">63,52%</td>
+            <td class="num target-bad">63,16%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,71</strong></td>
+            <td class="num">15</td>
+            <td class="num dispersion-projection">7</td>
+            <td class="num dispersion-projection">194</td>
+            <td class="num target-bad">60,00%</td>
+            <td class="num target-bad">64,70%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">6</td>
+            <td class="dispersion-bir">07600803R</td>
+            <td class="dealer-name">NOVA BAHIA</td>
+            <td>R4</td>
+            <td class="num">52,53%</td>
+            <td class="num">60,84%</td>
+            <td class="num">60,31%</td>
+            <td class="num">63,91%</td>
+            <td class="num target-bad">63,62%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+3,31</strong></td>
+            <td class="num">28</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">176</td>
+            <td class="num target-bad">74,11%</td>
+            <td class="num target-bad">60,43%</td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-detail-card pv expurgo">
+        <div class="dispersion-detail-heading">
+          <div><strong>Expurgo Pós-Venda</strong><span>5 concessionária(s)</span></div>
+          <small>Abaixo de 65%, mas ainda sem as 48 pesquisas mínimas do 6MM.</small>
+        </div>
+        <div class="dispersion-table-scroll dispersion-detail-scroll">
+          <table class="dispersion-detail-table">
+            <thead><tr>
+              <th>#</th><th>BIR</th><th>Concessionária</th><th>Região</th>
+              <th>Jun/2026 6MM</th>
+              <th>Jul/2026 6MM</th>
+              <th>6MM Referência (01/08)</th>
+              <th>6MM D-2 (22/08)</th>
+              <th>6MM D-1 (23/08)</th>
+              <th>Trend<br>D-1 × Referência</th>
+              <th>Qtd. pesquisas<br>respondidas no mês</th>
+              <th>Qtd. pesquisas<br>para entrar</th>
+              <th>Qtd. notas 5★<br>para objetivo (85,00%)</th>
+              <th>NPS INDEX<br>MTD</th><th>NPS INDEX<br>YTD</th>
+            </tr></thead>
+            <tbody>
+          <tr>
+            <td class="dealer-position">1</td>
+            <td class="dispersion-bir">07601094R</td>
+            <td class="dealer-name">VIA LESTE PATOS</td>
+            <td>R4</td>
+            <td class="num">50,00%</td>
+            <td class="num">50,00%</td>
+            <td class="num">50,00%</td>
+            <td class="num">50,00%</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="dispersion-detail-trend neutral"><span>=</span><strong>+0,00</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">46</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num">-</td>
+            <td class="num target-bad">50,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">2</td>
+            <td class="dispersion-bir">07601151R</td>
+            <td class="dealer-name">SOMA FRANCE ITAPEVA</td>
+            <td>R2</td>
+            <td class="num">45,31%</td>
+            <td class="num">53,41%</td>
+            <td class="num">53,41%</td>
+            <td class="num">52,17%</td>
+            <td class="num target-bad">52,17%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,24</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">25</td>
+            <td class="num dispersion-projection">51</td>
+            <td class="num target-bad">81,25%</td>
+            <td class="num target-bad">57,69%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">3</td>
+            <td class="dispersion-bir">07601180R</td>
+            <td class="dealer-name">ORVEL CACHOEIRO ITAPEMIRIM</td>
+            <td>R3</td>
+            <td class="num">62,50%</td>
+            <td class="num">53,57%</td>
+            <td class="num">53,57%</td>
+            <td class="num">57,14%</td>
+            <td class="num target-bad">57,14%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+3,57</strong></td>
+            <td class="num">1</td>
+            <td class="num dispersion-projection">34</td>
+            <td class="num dispersion-projection">26</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">56,67%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">4</td>
+            <td class="dispersion-bir">07601339R</td>
+            <td class="dealer-name">ORIGINAL NICE</td>
+            <td>R4</td>
+            <td class="num">-</td>
+            <td class="num">68,75%</td>
+            <td class="num">68,75%</td>
+            <td class="num">63,89%</td>
+            <td class="num target-bad">63,89%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-4,86</strong></td>
+            <td class="num">5</td>
+            <td class="num dispersion-projection">39</td>
+            <td class="num dispersion-projection">13</td>
+            <td class="num target-bad">60,00%</td>
+            <td class="num target-bad">63,89%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">5</td>
+            <td class="dispersion-bir">07601314R</td>
+            <td class="dealer-name">VALEC ITU</td>
+            <td>R2</td>
+            <td class="num">78,12%</td>
+            <td class="num">71,00%</td>
+            <td class="num">73,15%</td>
+            <td class="num">64,44%</td>
+            <td class="num target-bad">64,44%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-8,70</strong></td>
+            <td class="num">20</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">62</td>
+            <td class="num target-bad">56,25%</td>
+            <td class="num target-bad">64,44%</td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-detail-card pv condicional">
+        <div class="dispersion-detail-heading">
+          <div><strong>Condicional Pós-Venda</strong><span>9 concessionária(s)</span></div>
+          <small>Já estiveram na Dispersão, superaram 65% e ainda não atingiram 85%.</small>
+        </div>
+        <div class="dispersion-table-scroll dispersion-detail-scroll">
+          <table class="dispersion-detail-table">
+            <thead><tr>
+              <th>#</th><th>BIR</th><th>Concessionária</th><th>Região</th>
+              <th>Jun/2026 6MM</th>
+              <th>Jul/2026 6MM</th>
+              <th>6MM Referência (01/08)</th>
+              <th>6MM D-2 (22/08)</th>
+              <th>6MM D-1 (23/08)</th>
+              <th>Trend<br>D-1 × Referência</th>
+              <th>Qtd. pesquisas<br>respondidas no mês</th>
+              <th>Qtd. detratoras<br>para entrar</th>
+              <th>Qtd. notas 5★<br>para objetivo (85,00%)</th>
+              <th>NPS INDEX<br>MTD</th><th>NPS INDEX<br>YTD</th>
+            </tr></thead>
+            <tbody>
+          <tr>
+            <td class="dealer-position">1</td>
+            <td class="dispersion-bir">07600286R</td>
+            <td class="dealer-name">JANGADA FORTALEZA</td>
+            <td>R4</td>
+            <td class="num">65,94%</td>
+            <td class="num">66,88%</td>
+            <td class="num">68,99%</td>
+            <td class="num">66,43%</td>
+            <td class="num target-bad">66,43%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,56</strong></td>
+            <td class="num">9</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">87</td>
+            <td class="num target-bad">63,89%</td>
+            <td class="num target-bad">66,58%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">2</td>
+            <td class="dispersion-bir">07600762R</td>
+            <td class="dealer-name">DR SUL CAVALHADA</td>
+            <td>R1</td>
+            <td class="num">59,09%</td>
+            <td class="num">63,99%</td>
+            <td class="num">63,99%</td>
+            <td class="num">66,67%</td>
+            <td class="num target-bad">66,67%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,68</strong></td>
+            <td class="num">5</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">99</td>
+            <td class="num target-bad">0,00%</td>
+            <td class="num target-bad">60,99%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">3</td>
+            <td class="dispersion-bir">07601293R</td>
+            <td class="dealer-name">DR SUL CRICIÚMA</td>
+            <td>R1</td>
+            <td class="num">65,91%</td>
+            <td class="num">64,12%</td>
+            <td class="num">64,12%</td>
+            <td class="num">67,06%</td>
+            <td class="num target-bad">67,06%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,94</strong></td>
+            <td class="num">9</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">102</td>
+            <td class="num target-bad">83,33%</td>
+            <td class="num target-bad">67,01%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">4</td>
+            <td class="dispersion-bir">07600528R</td>
+            <td class="dealer-name">R POINT VILA IPIRANGA</td>
+            <td>R2</td>
+            <td class="num">59,13%</td>
+            <td class="num">59,23%</td>
+            <td class="num">59,23%</td>
+            <td class="num">67,69%</td>
+            <td class="num target-bad">67,69%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+8,46</strong></td>
+            <td class="num">5</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">75</td>
+            <td class="num target-ok">90,00%</td>
+            <td class="num target-bad">61,97%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">5</td>
+            <td class="dispersion-bir">07600976R</td>
+            <td class="dealer-name">ALLIANCE PALMAS</td>
+            <td>R4</td>
+            <td class="num">70,24%</td>
+            <td class="num">69,76%</td>
+            <td class="num">68,65%</td>
+            <td class="num">70,27%</td>
+            <td class="num target-bad">70,27%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+1,62</strong></td>
+            <td class="num">16</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">73</td>
+            <td class="num target-bad">46,88%</td>
+            <td class="num target-bad">67,17%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">6</td>
+            <td class="dispersion-bir">07600156R</td>
+            <td class="dealer-name">VALEC SOROCABA</td>
+            <td>R2</td>
+            <td class="num">59,57%</td>
+            <td class="num">66,62%</td>
+            <td class="num">67,41%</td>
+            <td class="num">70,13%</td>
+            <td class="num target-bad">70,29%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+2,88</strong></td>
+            <td class="num">37</td>
+            <td class="num dispersion-projection">7</td>
+            <td class="num dispersion-projection">188</td>
+            <td class="num target-bad">79,73%</td>
+            <td class="num target-bad">68,17%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">7</td>
+            <td class="dispersion-bir">07600819R</td>
+            <td class="dealer-name">SINAL FRANCE ADOLFO PINHEIRO</td>
+            <td>R2</td>
+            <td class="num">63,97%</td>
+            <td class="num">62,50%</td>
+            <td class="num">62,99%</td>
+            <td class="num">71,94%</td>
+            <td class="num target-bad">71,94%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+8,96</strong></td>
+            <td class="num">22</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">79</td>
+            <td class="num target-ok">89,77%</td>
+            <td class="num target-bad">69,76%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">8</td>
+            <td class="dispersion-bir">07601179R</td>
+            <td class="dealer-name">ORVEL VILA VELHA</td>
+            <td>R3</td>
+            <td class="num">65,91%</td>
+            <td class="num">69,49%</td>
+            <td class="num">70,00%</td>
+            <td class="num">75,79%</td>
+            <td class="num target-bad">75,79%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+5,79</strong></td>
+            <td class="num">11</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">39</td>
+            <td class="num target-bad">81,82%</td>
+            <td class="num target-bad">71,83%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">9</td>
+            <td class="dispersion-bir">07601169R</td>
+            <td class="dealer-name">JORLAN FRANCE BARÃO</td>
+            <td>R3</td>
+            <td class="num">64,29%</td>
+            <td class="num">70,25%</td>
+            <td class="num">71,45%</td>
+            <td class="num">78,49%</td>
+            <td class="num target-bad">78,49%</td>
+            <td class="dispersion-detail-trend good"><span>↑</span><strong>+7,04</strong></td>
+            <td class="num">46</td>
+            <td class="num dispersion-projection">15</td>
+            <td class="num dispersion-projection">78</td>
+            <td class="num target-ok">94,57%</td>
+            <td class="num target-bad">75,39%</td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+      <article class="dispersion-detail-card pv risco">
+        <div class="dispersion-detail-heading">
+          <div><strong>Risco Pós-Venda</strong><span>30 concessionária(s)</span></div>
+          <small>Entre 65% e 80%, em queda e sem Condicional ativa.</small>
+        </div>
+        <div class="dispersion-table-scroll dispersion-detail-scroll">
+          <table class="dispersion-detail-table">
+            <thead><tr>
+              <th>#</th><th>BIR</th><th>Concessionária</th><th>Região</th>
+              <th>Jun/2026 6MM</th>
+              <th>Jul/2026 6MM</th>
+              <th>6MM Referência (01/08)</th>
+              <th>6MM D-2 (22/08)</th>
+              <th>6MM D-1 (23/08)</th>
+              <th>Trend<br>D-1 × Referência</th>
+              <th>Qtd. pesquisas<br>respondidas no mês</th>
+              <th>Qtd. detratoras<br>para entrar</th>
+              <th>Qtd. notas 5★<br>para objetivo (85,00%)</th>
+              <th>NPS INDEX<br>MTD</th><th>NPS INDEX<br>YTD</th>
+            </tr></thead>
+            <tbody>
+          <tr>
+            <td class="dealer-position">1</td>
+            <td class="dispersion-bir">07601053R</td>
+            <td class="dealer-name">BESOURO PETROPOLIS</td>
+            <td>R3</td>
+            <td class="num">87,00%</td>
+            <td class="num">85,42%</td>
+            <td class="num">85,42%</td>
+            <td class="num">67,86%</td>
+            <td class="num target-bad">67,86%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-17,56</strong></td>
+            <td class="num">6</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">32</td>
+            <td class="num target-bad">8,33%</td>
+            <td class="num target-bad">71,43%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">2</td>
+            <td class="dispersion-bir">07600139R</td>
+            <td class="dealer-name">EUROVIA IMBIRIBEIRA</td>
+            <td>R4</td>
+            <td class="num">66,15%</td>
+            <td class="num">73,90%</td>
+            <td class="num">72,83%</td>
+            <td class="num">66,88%</td>
+            <td class="num target-bad">68,35%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-4,47</strong></td>
+            <td class="num">16</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">88</td>
+            <td class="num target-bad">45,31%</td>
+            <td class="num target-bad">68,82%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">3</td>
+            <td class="dispersion-bir">07600075R</td>
+            <td class="dealer-name">VALEC JUNDIAI</td>
+            <td>R2</td>
+            <td class="num">70,44%</td>
+            <td class="num">70,78%</td>
+            <td class="num">70,60%</td>
+            <td class="num">68,51%</td>
+            <td class="num target-bad">68,51%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,08</strong></td>
+            <td class="num">32</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">204</td>
+            <td class="num target-bad">57,03%</td>
+            <td class="num target-bad">69,04%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">4</td>
+            <td class="dispersion-bir">07600569R</td>
+            <td class="dealer-name">BARIGUI LONDRINA</td>
+            <td>R1</td>
+            <td class="num">76,74%</td>
+            <td class="num">75,39%</td>
+            <td class="num">75,77%</td>
+            <td class="num">69,62%</td>
+            <td class="num target-bad">69,23%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-6,54</strong></td>
+            <td class="num">18</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">82</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="num target-bad">70,18%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">5</td>
+            <td class="dispersion-bir">07600584R</td>
+            <td class="dealer-name">R POINT VILA PRUDENTE</td>
+            <td>R2</td>
+            <td class="num">63,89%</td>
+            <td class="num">71,21%</td>
+            <td class="num">70,31%</td>
+            <td class="num">69,87%</td>
+            <td class="num target-bad">69,87%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,44</strong></td>
+            <td class="num">8</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">40</td>
+            <td class="num target-bad">71,88%</td>
+            <td class="num target-bad">71,34%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">6</td>
+            <td class="dispersion-bir">07600728R</td>
+            <td class="dealer-name">GLOBO VEICULOS JOINVILLE</td>
+            <td>R1</td>
+            <td class="num">76,02%</td>
+            <td class="num">72,41%</td>
+            <td class="num">72,66%</td>
+            <td class="num">70,39%</td>
+            <td class="num target-bad">70,10%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,57</strong></td>
+            <td class="num">10</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">102</td>
+            <td class="num target-bad">77,50%</td>
+            <td class="num target-bad">74,80%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">7</td>
+            <td class="dispersion-bir">07601188R</td>
+            <td class="dealer-name">DIJON DIVINÓPOLIS</td>
+            <td>R3</td>
+            <td class="num">78,02%</td>
+            <td class="num">73,36%</td>
+            <td class="num">73,36%</td>
+            <td class="num">71,88%</td>
+            <td class="num target-bad">71,43%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,93</strong></td>
+            <td class="num">7</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num dispersion-projection">57</td>
+            <td class="num target-bad">71,43%</td>
+            <td class="num target-bad">75,00%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">8</td>
+            <td class="dispersion-bir">07601330R</td>
+            <td class="dealer-name">GLOBO VEÍCULOS BALNÉARIO CAMBORIÚ</td>
+            <td>R1</td>
+            <td class="num">79,17%</td>
+            <td class="num">81,94%</td>
+            <td class="num">81,94%</td>
+            <td class="num">71,59%</td>
+            <td class="num target-bad">71,59%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-10,35</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">20</td>
+            <td class="num target-bad">25,00%</td>
+            <td class="num target-bad">71,59%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">9</td>
+            <td class="dispersion-bir">07601331R</td>
+            <td class="dealer-name">GLOBO VEÍCULOS JARAGUÁ DO SUL</td>
+            <td>R1</td>
+            <td class="num">12,50%</td>
+            <td class="num">75,00%</td>
+            <td class="num">76,04%</td>
+            <td class="num">74,29%</td>
+            <td class="num target-bad">74,29%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,76</strong></td>
+            <td class="num">12</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">25</td>
+            <td class="num target-bad">72,92%</td>
+            <td class="num target-bad">74,29%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">10</td>
+            <td class="dispersion-bir">07600154R</td>
+            <td class="dealer-name">IESA AZENHA</td>
+            <td>R1</td>
+            <td class="num">78,45%</td>
+            <td class="num">81,65%</td>
+            <td class="num">81,65%</td>
+            <td class="num">74,72%</td>
+            <td class="num target-bad">74,72%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-6,93</strong></td>
+            <td class="num">13</td>
+            <td class="num dispersion-projection">6</td>
+            <td class="num dispersion-projection">61</td>
+            <td class="num target-bad">38,46%</td>
+            <td class="num target-bad">74,74%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">11</td>
+            <td class="dispersion-bir">07600916R</td>
+            <td class="dealer-name">R POINT VILA GUILHERME</td>
+            <td>R2</td>
+            <td class="num">74,43%</td>
+            <td class="num">78,33%</td>
+            <td class="num">78,33%</td>
+            <td class="num">75,00%</td>
+            <td class="num target-bad">75,00%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-3,33</strong></td>
+            <td class="num">6</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">41</td>
+            <td class="num target-bad">62,50%</td>
+            <td class="num target-bad">76,45%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">12</td>
+            <td class="dispersion-bir">07600759R</td>
+            <td class="dealer-name">VIA MONDO POCOS DE CALDAS</td>
+            <td>R3</td>
+            <td class="num">81,17%</td>
+            <td class="num">82,01%</td>
+            <td class="num">82,01%</td>
+            <td class="num">75,22%</td>
+            <td class="num target-bad">75,22%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-6,79</strong></td>
+            <td class="num">10</td>
+            <td class="num dispersion-projection">8</td>
+            <td class="num dispersion-projection">75</td>
+            <td class="num target-bad">10,00%</td>
+            <td class="num target-bad">76,26%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">13</td>
+            <td class="dispersion-bir">07600453R</td>
+            <td class="dealer-name">BARIGUI CURITIBA CAMPINA DO SIQUEIRA</td>
+            <td>R1</td>
+            <td class="num">82,60%</td>
+            <td class="num">78,16%</td>
+            <td class="num">78,26%</td>
+            <td class="num">76,44%</td>
+            <td class="num target-bad">76,64%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,62</strong></td>
+            <td class="num">34</td>
+            <td class="num dispersion-projection">19</td>
+            <td class="num dispersion-projection">145</td>
+            <td class="num target-bad">63,24%</td>
+            <td class="num target-bad">76,69%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">14</td>
+            <td class="dispersion-bir">07600973R</td>
+            <td class="dealer-name">EURO RIBEIRAO PRETO</td>
+            <td>R2</td>
+            <td class="num">77,26%</td>
+            <td class="num">78,07%</td>
+            <td class="num">77,94%</td>
+            <td class="num">77,51%</td>
+            <td class="num target-bad">77,51%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,43</strong></td>
+            <td class="num">40</td>
+            <td class="num dispersion-projection">16</td>
+            <td class="num dispersion-projection">100</td>
+            <td class="num target-bad">76,25%</td>
+            <td class="num target-bad">76,52%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">15</td>
+            <td class="dispersion-bir">07600100R</td>
+            <td class="dealer-name">GLOBO VEICULOS FLORIANOPOLIS</td>
+            <td>R1</td>
+            <td class="num">76,76%</td>
+            <td class="num">79,41%</td>
+            <td class="num">79,61%</td>
+            <td class="num">77,85%</td>
+            <td class="num target-bad">77,65%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,96</strong></td>
+            <td class="num">23</td>
+            <td class="num dispersion-projection">9</td>
+            <td class="num dispersion-projection">56</td>
+            <td class="num target-bad">81,52%</td>
+            <td class="num target-bad">79,33%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">16</td>
+            <td class="dispersion-bir">07600832R</td>
+            <td class="dealer-name">RAVEL RIO VERDE</td>
+            <td>R3</td>
+            <td class="num">79,55%</td>
+            <td class="num">82,62%</td>
+            <td class="num">81,18%</td>
+            <td class="num">77,84%</td>
+            <td class="num target-bad">77,84%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-3,34</strong></td>
+            <td class="num">17</td>
+            <td class="num dispersion-projection">8</td>
+            <td class="num dispersion-projection">47</td>
+            <td class="num target-bad">57,35%</td>
+            <td class="num target-bad">78,28%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">17</td>
+            <td class="dispersion-bir">07600985R</td>
+            <td class="dealer-name">REGENCE FORTALEZA RM + SR</td>
+            <td>R4</td>
+            <td class="num">76,47%</td>
+            <td class="num">78,12%</td>
+            <td class="num">78,12%</td>
+            <td class="num">78,17%</td>
+            <td class="num target-bad">77,86%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,27</strong></td>
+            <td class="num">19</td>
+            <td class="num dispersion-projection">6</td>
+            <td class="num dispersion-projection">34</td>
+            <td class="num target-bad">78,95%</td>
+            <td class="num target-bad">75,93%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">18</td>
+            <td class="dispersion-bir">07600935R</td>
+            <td class="dealer-name">GAMBOA MOSSORO</td>
+            <td>R4</td>
+            <td class="num">85,71%</td>
+            <td class="num">80,36%</td>
+            <td class="num">80,36%</td>
+            <td class="num">78,12%</td>
+            <td class="num target-bad">78,12%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,23</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">8</td>
+            <td class="num target-bad">81,25%</td>
+            <td class="num target-bad">80,56%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">19</td>
+            <td class="dispersion-bir">07600939R</td>
+            <td class="dealer-name">SINAL FRANCE INDIANÓPOLIS</td>
+            <td>R2</td>
+            <td class="num">78,17%</td>
+            <td class="num">80,94%</td>
+            <td class="num">80,94%</td>
+            <td class="num">78,30%</td>
+            <td class="num target-bad">78,30%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,64</strong></td>
+            <td class="num">21</td>
+            <td class="num dispersion-projection">8</td>
+            <td class="num dispersion-projection">41</td>
+            <td class="num target-bad">76,19%</td>
+            <td class="num target-bad">79,76%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">20</td>
+            <td class="dispersion-bir">07601220R</td>
+            <td class="dealer-name">BARIGUI PARANAGUÁ</td>
+            <td>R1</td>
+            <td class="num">78,57%</td>
+            <td class="num">79,79%</td>
+            <td class="num">80,21%</td>
+            <td class="num">78,45%</td>
+            <td class="num target-bad">78,45%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,76</strong></td>
+            <td class="num">14</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">26</td>
+            <td class="num target-bad">78,57%</td>
+            <td class="num target-bad">79,84%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">21</td>
+            <td class="dispersion-bir">07600860R</td>
+            <td class="dealer-name">IESA ERECHIM</td>
+            <td>R1</td>
+            <td class="num">75,00%</td>
+            <td class="num">81,25%</td>
+            <td class="num">81,25%</td>
+            <td class="num">78,57%</td>
+            <td class="num target-bad">78,57%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-2,68</strong></td>
+            <td class="num">0</td>
+            <td class="num dispersion-projection">1</td>
+            <td class="num dispersion-projection">3</td>
+            <td class="num">-</td>
+            <td class="num target-bad">81,25%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">22</td>
+            <td class="dispersion-bir">07600764R</td>
+            <td class="dealer-name">MARLIN BOA VISTA</td>
+            <td>R4</td>
+            <td class="num">83,08%</td>
+            <td class="num">81,93%</td>
+            <td class="num">82,14%</td>
+            <td class="num">78,61%</td>
+            <td class="num target-bad">78,61%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-3,53</strong></td>
+            <td class="num">20</td>
+            <td class="num dispersion-projection">8</td>
+            <td class="num dispersion-projection">39</td>
+            <td class="num target-bad">77,50%</td>
+            <td class="num target-bad">79,52%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">23</td>
+            <td class="dispersion-bir">07600968R</td>
+            <td class="dealer-name">AZZURRA FRANCE DUQUE DE CAXIAS</td>
+            <td>R3</td>
+            <td class="num">79,69%</td>
+            <td class="num">79,88%</td>
+            <td class="num">79,88%</td>
+            <td class="num">78,85%</td>
+            <td class="num target-bad">78,85%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,03</strong></td>
+            <td class="num">3</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">16</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">81,25%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">24</td>
+            <td class="dispersion-bir">07600440R</td>
+            <td class="dealer-name">VILLE RIO PRETO</td>
+            <td>R2</td>
+            <td class="num">75,00%</td>
+            <td class="num">78,97%</td>
+            <td class="num">79,17%</td>
+            <td class="num">78,91%</td>
+            <td class="num target-bad">78,91%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,25</strong></td>
+            <td class="num">15</td>
+            <td class="num dispersion-projection">10</td>
+            <td class="num dispersion-projection">47</td>
+            <td class="num target-ok">85,00%</td>
+            <td class="num target-bad">78,65%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">25</td>
+            <td class="dispersion-bir">07600566R</td>
+            <td class="dealer-name">ITAVEMA FRANCE SAO JOSE DOS CAMPOS SERIMBURA</td>
+            <td>R2</td>
+            <td class="num">78,15%</td>
+            <td class="num">79,44%</td>
+            <td class="num">79,56%</td>
+            <td class="num">79,01%</td>
+            <td class="num target-bad">79,01%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,55</strong></td>
+            <td class="num">17</td>
+            <td class="num dispersion-projection">16</td>
+            <td class="num dispersion-projection">75</td>
+            <td class="num target-bad">57,35%</td>
+            <td class="num target-bad">77,76%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">26</td>
+            <td class="dispersion-bir">07600820R</td>
+            <td class="dealer-name">AUTO FRANCE CAMPOS</td>
+            <td>R3</td>
+            <td class="num">77,70%</td>
+            <td class="num">83,33%</td>
+            <td class="num">83,67%</td>
+            <td class="num">82,55%</td>
+            <td class="num target-bad">79,17%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-4,51</strong></td>
+            <td class="num">8</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">21</td>
+            <td class="num target-bad">59,38%</td>
+            <td class="num target-bad">76,75%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">27</td>
+            <td class="dispersion-bir">07600167R</td>
+            <td class="dealer-name">DE MARCO JOACABA</td>
+            <td>R1</td>
+            <td class="num">81,94%</td>
+            <td class="num">80,26%</td>
+            <td class="num">80,26%</td>
+            <td class="num">80,26%</td>
+            <td class="num target-bad">79,17%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-1,10</strong></td>
+            <td class="num">2</td>
+            <td class="num dispersion-projection">2</td>
+            <td class="num dispersion-projection">7</td>
+            <td class="num target-ok">100,00%</td>
+            <td class="num target-bad">82,95%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">28</td>
+            <td class="dispersion-bir">07600263R</td>
+            <td class="dealer-name">OPEN VEICULOS TOLEDO</td>
+            <td>R1</td>
+            <td class="num">89,19%</td>
+            <td class="num">79,91%</td>
+            <td class="num">79,91%</td>
+            <td class="num">79,30%</td>
+            <td class="num target-bad">79,30%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,61</strong></td>
+            <td class="num">9</td>
+            <td class="num dispersion-projection">6</td>
+            <td class="num dispersion-projection">25</td>
+            <td class="num target-bad">77,78%</td>
+            <td class="num target-bad">79,92%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">29</td>
+            <td class="dispersion-bir">07600921R</td>
+            <td class="dealer-name">PROESTE MARILIA</td>
+            <td>R2</td>
+            <td class="num">78,03%</td>
+            <td class="num">79,49%</td>
+            <td class="num">79,49%</td>
+            <td class="num">79,88%</td>
+            <td class="num target-bad">79,38%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-0,11</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">4</td>
+            <td class="num dispersion-projection">15</td>
+            <td class="num target-bad">43,75%</td>
+            <td class="num target-bad">77,22%</td>
+          </tr>
+        
+          <tr>
+            <td class="dealer-position">30</td>
+            <td class="dispersion-bir">07601097R</td>
+            <td class="dealer-name">MUCHIUTT PRESIDENTE PRUDENTE</td>
+            <td>R2</td>
+            <td class="num">83,12%</td>
+            <td class="num">83,33%</td>
+            <td class="num">83,33%</td>
+            <td class="num">79,89%</td>
+            <td class="num target-bad">79,89%</td>
+            <td class="dispersion-detail-trend bad"><span>↓</span><strong>-3,44</strong></td>
+            <td class="num">4</td>
+            <td class="num dispersion-projection">5</td>
+            <td class="num dispersion-projection">16</td>
+            <td class="num target-bad">50,00%</td>
+            <td class="num target-bad">81,48%</td>
+          </tr>
+        </tbody>
+          </table>
+        </div>
+      </article>
+    
+        </div>
+      </div>
+      <div class="dispersion-method-note">
+        O histórico de entrada e saída é reconstruído pela janela móvel diária de 6 meses. As projeções consideram novas pesquisas completas com nota 5★ nos três componentes do NPS Index ou, quando indicado, notas detratoras nos três componentes.
+      </div>
+    </section>
+    
+
   <section id="verbalizacoes" class="section">
     <div class="filter-bar">
       <span class="filter-label">Visão</span>
@@ -9019,8 +11764,8 @@ footer { margin-top:40px; border-top:1px solid var(--border); padding:16px 10px 
   </section>
 
   <footer>
-    <div class="footer-main">Renault · Dashboard de Qualidade · Versão 1.3.8</div>
-    <div class="footer-meta">Gerado em 24/08/2026 08:17 · Base de qualidade atualizada em 24/08/2026 08:12 · Histórico de taxa de resposta atualizado em 24/08/2026 08:11</div>
+    <div class="footer-main">Renault · Dashboard de Qualidade · Versão 1.3.10</div>
+    <div class="footer-meta">Gerado em 24/08/2026 15:05 · Base de qualidade atualizada em 24/08/2026 14:45 · Histórico de taxa de resposta atualizado em 24/08/2026 08:11</div>
     <div class="footer-credit">Desenvolvido por <strong>Rafael Dias</strong> · <a href="mailto:rafael.r.santos-extern@renault.com">rafael.r.santos-extern@renault.com</a></div>
   </footer>
 </div>
